@@ -1,0 +1,138 @@
+@font-face {
+	font-family: depixel;
+	src: url("./files/DePixelKlein.ttf");
+}
+
+@font-face {
+	font-family: depixel-b;
+	src: url("./files/DePixelBreit.ttf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: depixel;
+	background-color: #222831;
+	color: #ffffff;
+	min-height: 100vh;
+}
+
+.container {
+	width: 74rem;
+	padding: 2rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background-color: #393e46;
+}
+
+.uppercontents {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8rem;
+}
+
+.again-btn {
+	width: 18rem;
+	height: 6.5rem;
+	font-family: depixel;
+	font-size: 2.4rem;
+	border-radius: 0;
+	border: none;
+	outline: none;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+.number-announcement {
+	font-size: 2.4rem;
+}
+
+.middlecontent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 8rem;
+}
+
+.guessnumbertitle {
+	font-family: depixel-b;
+	font-size: 4rem;
+	margin-bottom: 4.5rem;
+}
+
+.thenumber-holder {
+	width: 23rem;
+	height: 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+}
+
+.thenumber {
+	font-family: depixel-b;
+	font-size: 6.4rem;
+	color: #000000;
+}
+
+.downercontent {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.leftcontent {
+	display: flex;
+	flex-direction: column;
+}
+
+.checkerinput {
+	width: 18rem;
+	height: 6.5rem;
+	text-align: center;
+	font-family: depixel;
+	font-size: 3.5rem;
+	background-color: transparent;
+	color: #ffffff;
+	border: 0.3rem solid #ffffff;
+	outline: none;
+	margin-bottom: 1.2rem;
+}
+
+.checkerinput::-webkit-inner-spin-button,
+.checkerinput::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+.checkbtn {
+	width: 18rem;
+	height: 4rem;
+	font-family: depixel;
+	font-size: 2rem;
+	background-color: #ffffff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.rightcontent {
+	font-size: 2.4rem;
+	text-align: left;
+}
+
+.statustext {
+	margin-block: 2rem;
+}
