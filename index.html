@@ -9,26 +9,45 @@
 	</head>
 	<body>
 		<div class="container">
-			<!-- <div class=""></div> -->
-			<div class="uppercontents">
-				<button class="again-btn">Again!</button>
-				<p class="number-announcement">A Number Between 1 - 20</p>
-			</div>
-			<div class="middlecontent">
-				<h2 class="guessnumbertitle">Guess my number</h2>
-				<div class="thenumber-holder"><h3 class="thenumber">?</h3></div>
-			</div>
-			<div class="downercontent">
-				<div class="leftcontent">
-					<input type="number" class="checkerinput" placeholder="1-20" />
-					<button class="checkbtn">Check!</button>
-				</div>
-				<div class="rightcontent">
-					<p class="statustext status">Start Guessing...</p>
-					<p class="statustext">Score : <span class="score">20</span></p>
-					<p class="statustext">
-						Highest Record : <span class="highestrecord">0</span>
+			<!-- Starting Page -->
+
+			<form class="starting-page">
+				<h1 class="startingtitle">Choose a number</h1>
+				<input
+					type="number"
+					class="staringinput"
+					name="staringInput"
+					placeholder="1-1000"
+				/>
+				<button type="submit" class="startbtn">Start</button>
+				<p class="warning">Please choose a number between 1 and 1000</p>
+			</form>
+
+			<!-- Main Page -->
+
+			<div class="game-main-page">
+				<div class="uppercontents">
+					<button class="again-btn">Again!</button>
+					<p class="number-announcement">
+						A Number Between 1 - <span class="number">0</span>
 					</p>
+				</div>
+				<div class="middlecontent">
+					<h2 class="guessnumbertitle">Guess my number</h2>
+					<div class="thenumber-holder"><h3 class="thenumber">?</h3></div>
+				</div>
+				<div class="downercontent">
+					<div class="leftcontent">
+						<input type="number" class="checkerinput" placeholder="1-20" />
+						<button class="checkbtn">Check!</button>
+					</div>
+					<div class="rightcontent">
+						<p class="statustext status">Start Guessing...</p>
+						<p class="statustext">Score : <span class="score">20</span></p>
+						<p class="statustext">
+							Highest Record : <span class="highestrecord">0</span>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
