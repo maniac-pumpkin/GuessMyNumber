@@ -16,7 +16,7 @@
 
 html {
 	font-size: 10px;
-	/* user-select: none; */
+	user-select: none;
 }
 
 body {
@@ -28,7 +28,6 @@ body {
 }
 
 .container {
-	/* width: 49%; */
 	width: 74rem;
 	padding: 2rem;
 	position: absolute;
