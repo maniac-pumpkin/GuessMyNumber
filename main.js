@@ -31,6 +31,7 @@ const freezeOrReset = (trigger) => {
 		checkerValue.value = "";
 		startingInput.value = "";
 		score = 20;
+		statusScore.innerText = score;
 		switchScreen(0);
 	} else {
 		checkerValue.value = "";
@@ -39,7 +40,7 @@ const freezeOrReset = (trigger) => {
 	}
 };
 
-const nextStage = (num) => {
+const checkValue = (num) => {
 	if (num === randomNumber) {
 		body.style.backgroundColor = "#9CFF2E";
 		invisibleRN.innerText = randomNumber;
@@ -48,10 +49,10 @@ const nextStage = (num) => {
 		freezeOrReset(0);
 	} else if (num > randomNumber) {
 		statusText.innerText = "The number is lower";
-		--score;
+		score -= 1;
 	} else if (num < randomNumber) {
 		statusText.innerText = "The number is higher";
-		--score;
+		score -= 1;
 	}
 
 	if (score === 0) {
@@ -67,10 +68,9 @@ const nextStage = (num) => {
 const doStuff = () => {
 	document.querySelector(".number").innerText = chosenNumber;
 	document.querySelector(".checkerinput").placeholder = `1-${chosenNumber}`;
-
 	checkerBtn.addEventListener("click", () => {
 		if (checkerValue.value) {
-			nextStage(Number(checkerValue.value));
+			checkValue(Number(checkerValue.value));
 		} else {
 			statusText.innerText = "Guess a number";
 		}
@@ -90,6 +90,7 @@ startingPage.addEventListener("submit", (e) => {
 
 	if (chosenNumber >= 20 && chosenNumber <= 1000) {
 		checkerValue.value = "";
+		warningText.style.visibility = "hidden";
 		checkerValue.style.pointerEvents = "all";
 		checkerBtn.style.pointerEvents = "all";
 		switchScreen(1);
