@@ -20,19 +20,22 @@ const statusScore = document.querySelector(".score");
 const highScoreStatus = document.querySelector(".highestrecord");
 const invisibleRN = document.querySelector(".thenumber");
 const checkerValue = document.querySelector(".checkerinput");
+const startingInput = document.querySelector(".staringinput");
+const checkerBtn = document.querySelector(".checkbtn");
 
-// TODO: Make the value of input empty
 const freezeOrReset = (trigger) => {
 	if (trigger) {
 		body.style.backgroundColor = "#222831";
 		statusText.innerText = "Start Guessing...";
 		invisibleRN.innerText = "?";
 		checkerValue.value = "";
+		startingInput.value = "";
 		score = 20;
 		switchScreen(0);
 	} else {
 		checkerValue.value = "";
-		checkerValue.style.pointerEvent = "none";
+		checkerValue.style.pointerEvents = "none";
+		checkerBtn.style.pointerEvents = "none";
 	}
 };
 
@@ -42,6 +45,7 @@ const nextStage = (num) => {
 		invisibleRN.innerText = randomNumber;
 		statusText.innerText = "You Won";
 		highestRecord.push(score);
+		freezeOrReset(0);
 	} else if (num > randomNumber) {
 		statusText.innerText = "The number is lower";
 		--score;
@@ -49,7 +53,13 @@ const nextStage = (num) => {
 		statusText.innerText = "The number is higher";
 		--score;
 	}
-	// TODO: Losing Stage
+
+	if (score === 0) {
+		body.style.backgroundColor = "#FF1E1E";
+		statusText.innerText = "You're a loser";
+		invisibleRN.innerText = randomNumber;
+		freezeOrReset(0);
+	}
 	statusScore.innerText = score;
 	highScoreStatus.innerText = Math.max(...highestRecord);
 };
@@ -57,9 +67,8 @@ const nextStage = (num) => {
 const doStuff = () => {
 	document.querySelector(".number").innerText = chosenNumber;
 	document.querySelector(".checkerinput").placeholder = `1-${chosenNumber}`;
-	console.log(randomNumber);
 
-	document.querySelector(".checkbtn").addEventListener("click", () => {
+	checkerBtn.addEventListener("click", () => {
 		if (checkerValue.value) {
 			nextStage(Number(checkerValue.value));
 		} else {
@@ -76,10 +85,13 @@ startingPage.addEventListener("submit", (e) => {
 	e.preventDefault();
 	const warningText = document.querySelector(".warning");
 
-	chosenNumber = Number(startingPage.staringInput.value);
+	chosenNumber = Number(startingInput.value);
 	randomNumber = Math.ceil(Math.random() * Number(chosenNumber));
 
 	if (chosenNumber >= 20 && chosenNumber <= 1000) {
+		checkerValue.value = "";
+		checkerValue.style.pointerEvents = "all";
+		checkerBtn.style.pointerEvents = "all";
 		switchScreen(1);
 		doStuff();
 	} else {
